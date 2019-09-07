@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  variables:
+    CI: "true"
+
+phases:
+  pre_build:
+    commands:
+      - echo "Install packages"
+      - npm install
+  build:
+    commands:
+      - echo "Run unit test"
+  post_build:
+    commands:
+      - echo "Cleaning up" 
+      - npm build
+
+artifacts:
+  files: 
+    - "**/**"
+  based_directory: build
